@@ -1,0 +1,91 @@
+@use 'variables';
+@use 'reset';
+
+// Glassmorphism mixin
+@mixin glass($blur: 14px, $opacity: 0.55) {
+  background: rgba(34, 51, 59, $opacity);
+  backdrop-filter: blur($blur);
+  -webkit-backdrop-filter: blur($blur);
+  border: 1px solid var(--border);
+}
+
+// Ambient background orbs
+body::before,
+body::after {
+  content: '';
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(120px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+body::before {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(94, 80, 63, 0.35) 0%, transparent 70%);
+  top: -100px;
+  right: -100px;
+}
+
+body::after {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(34, 51, 59, 0.5) 0%, transparent 70%);
+  bottom: -80px;
+  left: -80px;
+}
+
+#root {
+  position: relative;
+  z-index: 1;
+}
+
+.glass {
+  @include glass;
+  border-radius: var(--radius-lg);
+}
+
+// Shared button styles
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-md);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  transition: all var(--transition-med);
+
+  &--primary {
+    background: linear-gradient(135deg, var(--sand), var(--umber));
+    color: var(--ink);
+    box-shadow: 0 4px 20px rgba(198, 172, 143, 0.25);
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(198, 172, 143, 0.4);
+    }
+
+    &:active { transform: translateY(0); }
+  }
+
+  &--ghost {
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+
+    &:hover {
+      border-color: var(--border-hover);
+      color: var(--text-primary);
+      background: var(--surface);
+    }
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none !important;
+  }
+}

@@ -1,0 +1,52 @@
+:root {
+  // Brand palette
+  --ink:   #0a0908;
+  --deep:  #22333b;
+  --cream: #eae0d5;
+  --sand:  #c6ac8f;
+  --umber: #5e503f;
+
+  // Derived / UI
+  --surface:      rgba(34, 51, 59, 0.55);
+  --surface-hover:rgba(34, 51, 59, 0.75);
+  --border:       rgba(198, 172, 143, 0.18);
+  --border-hover: rgba(198, 172, 143, 0.38);
+  --text-primary: var(--cream);
+  --text-secondary: rgba(234, 224, 213, 0.65);
+  --text-muted:   rgba(234, 224, 213, 0.4);
+
+  // Severity
+  --severity-critical: #ff4d4d;
+  --severity-high:     #ff8c42;
+  --severity-medium:   #ffd166;
+  --severity-low:      #06d6a0;
+  --severity-info:     #74b0f4;
+
+  // Typography
+  --font-heading: 'Syne', sans-serif;
+  --font-body:    'Inter', sans-serif;
+
+  // Spacing scale
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+
+  // Radii
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+
+  // Transitions
+  --transition-fast: 150ms ease;
+  --transition-med:  300ms ease;
+}
