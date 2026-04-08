@@ -52,9 +52,11 @@ export async function analyzeContract(code) {
     throw new Error('Empty response from Anthropic');
   }
 
+  const cleaned = raw.replace(/^```(?:json)?\s*/i, '').replace(/\s*```$/, '').trim();
+
   let report;
   try {
-    report = JSON.parse(raw);
+    report = JSON.parse(cleaned);
   } catch {
     logger.error('Failed to parse Anthropic response as JSON:', raw.slice(0, 200));
     throw new Error('AI returned malformed JSON');
